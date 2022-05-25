@@ -1,0 +1,582 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#"
+     xml:base="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Nuvio="http://cogradio.org/ont/Nuvio.owl#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations">
+        <owl:imports rdf:resource="http://cogradio.org/ont/Nuvio.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#hasClass -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#hasClass"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#universalBaseClass -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#universalBaseClass">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cogradio.org/ont/Nuvio.owl#aggregateOf -->
+
+    <rdf:Description rdf:about="http://cogradio.org/ont/Nuvio.owl#aggregateOf">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#partOf"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#hasArchitecture -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#hasArchitecture">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#System"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Architecture"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#hasFunction -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#hasFunction">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#UseCase"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#nextConfiguration -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#nextConfiguration">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Configuration"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#partOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#partOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#satisfies -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#satisfies">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Requirement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ArchitecturalStyle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ArchitecturalStyle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Methodology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Architecture -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Architecture">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ProcessArtifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ArchitectureSelection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ArchitectureSelection">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareDevelopmentProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#CAB -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#CAB">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#CABElement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#CABElement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#UMLClass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Code -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Code">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ProcessArtifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Component -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Component">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Concretization -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Concretization">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Process"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ConcretizationStep"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ConcretizationStep"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ConcretizationProcess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ConcretizationProcess">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareDevelopmentProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ConcretizationStep -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ConcretizationStep">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Process"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#nextConfiguration"/>
+                        <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Configuration"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#nextConfiguration"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Configuration"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Configuration -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Configuration">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Methodology"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ProcessArtifact"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#RefinementLevel"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment>A design commitment to Methodology, Refinement Level and a specific (sub)Process.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Design -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Design">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ProcessArtifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#DesignPrinciple -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#DesignPrinciple">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Methodology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Dispatcher -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Dispatcher">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#CABElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Methodology -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Methodology">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdfs:comment>Software Engineering Methodological assumptions</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ProcessArtifact -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ProcessArtifact">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdfs:comment>Modification of a Configuration. Either modification of Methodology or Refinement Level for a specific Process step.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ProgrammingParadigm -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ProgrammingParadigm">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Methodology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#RefinementLevel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#RefinementLevel">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdfs:comment>A step in the ConcretizationProcess that modifies the granularity of a Configuration.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#RefinementProcess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#RefinementProcess">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareDevelopmentProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Requirement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Requirement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ProcessArtifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#RequirementSpecification -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#RequirementSpecification">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareDevelopmentProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SWEngineeringStandard -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SWEngineeringStandard">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Methodology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Shipment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Shipment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#CABElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareDesign -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareDesign">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareDevelopmentProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareDevelopmentProcess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareDevelopmentProcess">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareImplementation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareImplementation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareDevelopmentProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareTesting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareTesting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareDevelopmentProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#System -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#System">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Component"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Test -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Test">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ProcessArtifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Transporter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Transporter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#CABElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#UMLClass -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#UMLClass">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#UniversalBaseClass -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#UniversalBaseClass">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#UseCase -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#UseCase">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ProcessArtifact"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#UseCaseDevelopment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#UseCaseDevelopment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#SoftwareDevelopmentProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#C0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#C0">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Configuration"/>
+        <Nuvio:aggregateOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#L0"/>
+        <Nuvio:aggregateOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#MA0"/>
+        <Nuvio:aggregateOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#R0"/>
+        <rdfs:comment>Configuration C0</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#C1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#C1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Configuration"/>
+        <Nuvio:aggregateOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#DP1"/>
+        <Nuvio:aggregateOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#L1"/>
+        <Nuvio:aggregateOf rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#R1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#CAB -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#CAB">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#System"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#DP1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#DP1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#DesignPrinciple"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Dispatcher1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Dispatcher1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Dispatcher"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#L0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#L0">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#RefinementLevel"/>
+        <rdfs:comment>Refinement level L0</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#L1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#L1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#RefinementLevel"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#MA0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#MA0">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#ArchitecturalStyle"/>
+        <rdfs:comment>Methodological concretization: Architectural Style is Layered Architecture</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#R0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#R0">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Requirement"/>
+        <rdfs:comment>Requiremet artifact: R0</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#R1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#R1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Requirement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Shipment1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Shipment1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Shipment"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Transporter1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Transporter1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Transporter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#UniversalBaseClassPrinciple -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#UniversalBaseClassPrinciple">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#DesignPrinciple"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#CAB">
+        <hasClass rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Shipment"/>
+        <hasClass rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Dispatcher"/>
+        <hasClass rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#CABElement"/>
+        <hasClass rdf:resource="http://www.semanticweb.org/mkokar/ontologies/2021/7/Concretizations#Transporter"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
