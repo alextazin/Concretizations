@@ -1,0 +1,626 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ece.neu.edu/ontologies/ArchitectureStyle.owl#"
+     xml:base="http://ece.neu.edu/ontologies/ArchitectureStyle.owl"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Nuvio="http://cogradio.org/ont/Nuvio.owl#"
+     xmlns:SystemArchitecture="http://ece.neu.edu/ontologies/SystemArchitecture.owl#">
+    <owl:Ontology rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl">
+        <owl:imports rdf:resource="http://cogradio.org/ont/Nuvio.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#hasBaseClass -->
+
+    <owl:AnnotationProperty rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#hasBaseClass">
+        <rdfs:range rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#BaseClass"/>
+        <rdfs:domain rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#UniversalBaseClass"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cogradio.org/ont/Nuvio.owl#hasValue -->
+
+    <owl:ObjectProperty rdf:about="http://cogradio.org/ont/Nuvio.owl#hasValue"/>
+    
+
+
+    <!-- http://cogradio.org/ont/Nuvio.owl#participatesIn -->
+
+    <owl:ObjectProperty rdf:about="http://cogradio.org/ont/Nuvio.owl#participatesIn"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#depends -->
+
+    <owl:ObjectProperty rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#depends"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#hasLayerValue -->
+
+    <owl:ObjectProperty rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#hasLayerValue">
+        <rdfs:subPropertyOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#hasValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#isRequestedBy -->
+
+    <owl:ObjectProperty rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#isRequestedBy">
+        <owl:inverseOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#requestsService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#providesService -->
+
+    <owl:ObjectProperty rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#providesService">
+        <rdfs:subPropertyOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#participatesIn"/>
+        <rdfs:range rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#requestsService -->
+
+    <owl:ObjectProperty rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#requestsService">
+        <rdfs:range rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#serves -->
+
+    <owl:ObjectProperty rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#serves">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#providesService"/>
+            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#isRequestedBy"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cogradio.org/ont/Nuvio.owl#Object -->
+
+    <owl:Class rdf:about="http://cogradio.org/ont/Nuvio.owl#Object"/>
+    
+
+
+    <!-- http://cogradio.org/ont/Nuvio.owl#Process -->
+
+    <owl:Class rdf:about="http://cogradio.org/ont/Nuvio.owl#Process"/>
+    
+
+
+    <!-- http://cogradio.org/ont/Nuvio.owl#Value -->
+
+    <owl:Class rdf:about="http://cogradio.org/ont/Nuvio.owl#Value"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#CABElement -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#CABElement">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#UMLClass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Client -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Client">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#requestsService"/>
+                        <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#ClientServerArchitecture -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#ClientServerArchitecture">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#SystemArchitecture"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Peer"/>
+                            </owl:Restriction>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                        <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Client"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                        <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Server"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#SystemArchitecture"/>
+        <owl:disjointWith rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#LayeredArchitecture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#DesignPrinciple -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#DesignPrinciple">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#IntegerValue -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#IntegerValue">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Value"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#hasDataValue"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#LayeredArchitecture -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#LayeredArchitecture">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#SystemArchitecture"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#PeerToPeerArchitecture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Peer -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Peer">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#providesService"/>
+                        <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#requestsService"/>
+                        <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#PeerToPeerArchitecture -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#PeerToPeerArchitecture">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#SystemArchitecture"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                        <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Peer"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#SystemArchitecture"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Server -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Server">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#providesService"/>
+                        <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Process"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Singleton -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Singleton"/>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#SystemArchitecture -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#SystemArchitecture">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#UMLClass -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#UMLClass">
+        <rdfs:subClassOf rdf:resource="http://cogradio.org/ont/Nuvio.owl#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#UniversalBaseClass -->
+
+    <owl:Class rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#UniversalBaseClass">
+        <rdfs:subClassOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#DesignPrinciple"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cogradio.org/ont/Nuvio.owl#aggregateOf"/>
+                <owl:someValuesFrom rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#UMLClass"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Architecture1 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Architecture1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#SystemArchitecture"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Dispatcher1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#SenderInterface1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Shipment1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Transporter1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#TransporterInterface1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Architecture2 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Architecture2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#SystemArchitecture"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Peer1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Peer2"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Peer3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Architecture3 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Architecture3">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#SystemArchitecture"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Client1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Client2"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Server1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Server2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Client1 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Client1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+        <SystemArchitecture:requestsService rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service4"/>
+        <SystemArchitecture:requestsService rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Client2 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Client2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+        <SystemArchitecture:requestsService rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Dispatcher1 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Dispatcher1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#CABElement"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+        <SystemArchitecture:depends rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Shipment1"/>
+        <SystemArchitecture:depends rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Transporter1"/>
+        <SystemArchitecture:hasLayerValue rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Two"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#One -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#One">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#IntegerValue"/>
+        <Nuvio:hasDataValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</Nuvio:hasDataValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Peer1 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Peer1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+        <SystemArchitecture:requestsService rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Peer2 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Peer2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+        <SystemArchitecture:providesService rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service2"/>
+        <SystemArchitecture:requestsService rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Peer3 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Peer3">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+        <SystemArchitecture:providesService rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#SenderInterface1 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#SenderInterface1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#CABElement"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+        <SystemArchitecture:depends rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Dispatcher1"/>
+        <SystemArchitecture:hasLayerValue rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Three"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Server1 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Server1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+        <SystemArchitecture:providesService rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Server2 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Server2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+        <SystemArchitecture:providesService rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service5"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service1 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service2 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service2">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service3 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service3">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service4 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service4">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service5 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service5">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Service"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Shipment1 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Shipment1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#CABElement"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+        <SystemArchitecture:depends rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Transporter1"/>
+        <SystemArchitecture:hasLayerValue rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#One"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Singleton1 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Singleton1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Singleton"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Dispatcher1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Three -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Three">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#IntegerValue"/>
+        <Nuvio:hasDataValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</Nuvio:hasDataValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Transporter1 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Transporter1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#CABElement"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+        <SystemArchitecture:hasLayerValue rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#One"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#TransporterInterface1 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#TransporterInterface1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#CABElement"/>
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Component"/>
+        <SystemArchitecture:depends rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Dispatcher1"/>
+        <SystemArchitecture:hasLayerValue rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Three"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#Two -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Two">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#IntegerValue"/>
+        <Nuvio:hasDataValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</Nuvio:hasDataValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ece.neu.edu/ontologies/SystemArchitecture.owl#UniversalBaseClass1 -->
+
+    <owl:NamedIndividual rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#UniversalBaseClass1">
+        <rdf:type rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#DesignPrinciple"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Dispatcher1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#SenderInterface1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Shipment1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Transporter1"/>
+        <Nuvio:aggregateOf rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#TransporterInterface1"/>
+        <SystemArchitecture:hasBaseClass rdf:resource="http://ece.neu.edu/ontologies/SystemArchitecture.owl#CABElement"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#One"/>
+            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Three"/>
+            <rdf:Description rdf:about="http://ece.neu.edu/ontologies/SystemArchitecture.owl#Two"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

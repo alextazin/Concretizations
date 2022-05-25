@@ -1,0 +1,65 @@
+Layered architecture rule:
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+	   "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX n: <http://cogradio.org/ont/Nuvio.owl#>\n
+PREFIX sa: <http://ece.neu.edu/ontologies/SystemArchitecture.owl#>
+INSERT 
+{ ?x rdf:type sa:LayeredArchitecture }
+WHERE 
+{ 
+ ?x rdf:type sa:SystemArchitecture. 
+ FILTER (NOT EXISTS {?x n:aggregateOf ?c1. ?c1 rdf:type sa:Component. ?c1 sa:hasLayerValue ?lv1. ?lv1 n:hasDataValue ?dv1. ?c1 sa:hasLayerValue ?lv2. ?lv1 n:hasDataValue ?dv2. FILTER (?dv1 != ?dv2) }). 
+ FILTER (NOT EXISTS { ?c1 rdf:type sa:Component.  
+ ?c2 rdf:type sa:Component.  
+ ?c1 sa:depends ?c2.  
+ ?x n:aggregateOf ?c1. 
+ ?x n:aggregateOf ?c2. 
+ ?c1 sa:hasLayerValue ?lv1. 
+ ?lv1 n:hasDataValue ?dv1. 
+ ?c2 sa:hasLayerValue ?lv2. 
+ ?lv2 n:hasDataValue ?dv2.  
+ FILTER (?dv1 < ?dv2) }).
+ FILTER (EXISTS { ?c3 rdf:type sa:Component.  
+ ?c4 rdf:type sa:Component.  
+ ?c3 sa:depends ?c4.  
+ ?x n:aggregateOf ?c3. 
+ ?x n:aggregateOf ?c4. 
+ ?c3 sa:hasLayerValue ?lv3. 
+ ?lv3 n:hasDataValue ?dv3. 
+ ?c4 sa:hasLayerValue ?lv4. 
+ ?lv4 n:hasDataValue ?dv4.  
+ FILTER (?dv3 >= ?dv4) }) } 
+
+Client server architecture rule:
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX n: <http://cogradio.org/ont/Nuvio.owl#>
+PREFIX sa: <http://ece.neu.edu/ontologies/SystemArchitecture.owl#>
+INSERT 
+ { ?x rdf:type sa:ClientServerArchitecture }
+WHERE { 
+ ?x rdf:type sa:SystemArchitecture. 
+ FILTER (EXISTS { ?x n:aggregateOf ?c1. ?c1 rdf:type sa:Component. ?c1 sa:requestsService ?s1. ?s1 rdf:type sa:Service. }). 
+ FILTER (EXISTS { ?x n:aggregateOf ?c2. ?c2 rdf:type sa:Component. ?c2 sa:providesService ?s2. ?s2 rdf:type sa:Service. }). 
+ FILTER (NOT EXISTS { ?x n:aggregateOf ?c3. ?c3 rdf:type sa:Component. ?c3 sa:requestsService ?s3. ?s3 rdf:type sa:Service. ?c3 sa:providesService ?s4. ?s4 rdf:type sa:Service. })}
+
+Universal base class rule:
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX n: <http://cogradio.org/ont/Nuvio.owl#>\n
+PREFIX sa: <http://ece.neu.edu/ontologies/SystemArchitecture.owl#>
+INSERT 
+{ ?y rdf:type sa:UniversalBaseClass }
+WHERE 
+{ ?y rdf:type sa:DesignPrinciple. FILTER NOT EXISTS {?y n:aggregateOf ?c2.  ?c2 rdf:type sa:UMLClass. ?c2 rdf:type ?c3. ?c3 rdfs:subClassOf sa:UMLClass. FILTER (?c3 != sa:UMLClass). FILTER (?c3 != ?bc2). FILTER (NOT EXISTS {?c3 rdfs:subClassOf ?bc2.}). ?y sa:hasBaseClass ?bc2. }}
+
+
